@@ -6,5 +6,10 @@ dist/
 wheels/
 *.egg-info
 
+# Other Python-generated files
+.python-version
+pyproject.toml
+
 # Virtual environments
 .venv
+uv.lock
