@@ -1,8 +1,7 @@
-# this allows us to use code from
-# the open-source pygame library
-# throughout this file
+# pygame library
 import pygame
 
+# imports
 from constants import *
 from player import Player
 
@@ -37,7 +36,6 @@ def main():
         player.draw(screen)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
-
 
 # Main function protection
 if __name__ == "__main__":
