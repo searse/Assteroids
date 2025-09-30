@@ -13,3 +13,6 @@ pyproject.toml
 # Virtual environments
 .venv
 uv.lock
+
+#vscode rules
+.vscode
