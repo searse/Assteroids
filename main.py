@@ -1,3 +1,6 @@
+# sys library
+import sys
+
 # pygame library
 import pygame
 
@@ -46,6 +49,11 @@ def main():
                 return
 
         updatable.update(dt) # update the player rotation status
+
+        for asteroid in asteroids:
+            if asteroid.collides(player):
+                print("Game over!")
+                sys.exit()
 
         dt = clock.tick(60) / 1000 #limit the FPS to 60
         
