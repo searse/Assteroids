@@ -9,6 +9,8 @@ from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from shot import Shot
+
 
 def main():
 
@@ -29,10 +31,12 @@ def main():
     updatable = pygame.sprite.Group() # declare updatable objects group
     drawable = pygame.sprite.Group() # declare drawable objects group
     asteroids = pygame.sprite.Group() # declare asteroid objects group
+    shots = pygame.sprite.Group() # declare shots objects group
 
     Player.containers = (updatable, drawable) # add class variable "containers" to Player to store groups
     Asteroid.containers = (asteroids, updatable, drawable) # add class variable "containers" to Asteroid to store groups
     AsteroidField.containers = (updatable) # add class variable "containers" to AsteroidField to store groups
+    Shot.containers = (shots, updatable, drawable) # add class variable "containers" to Shots to store groups
 
     asteroid_field = AsteroidField() # declare variable to store the Asteroid Field as instance of AsteroidField()
 
