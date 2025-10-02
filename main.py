@@ -59,6 +59,11 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+            for shot in shots:
+                if asteroid.collides(shot):
+                    asteroid.split()
+                    shot.kill()
+
         dt = clock.tick(60) / 1000 #limit the FPS to 60
         
         screen.fill("black") # fill the screen

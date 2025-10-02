@@ -41,8 +41,10 @@ class Player(CircleShape):
         if keys[pygame.K_SPACE]:
             self.shoot()
 
-        buttons = pygame.mouse.get_pressed() # listen for mouse buttons "getting pressed"
-        if buttons[0]: # if left mouse button is pressed
+        mouse = pygame.mouse.get_pressed() # listen for mouse buttons "getting pressed"
+        if mouse[0]: # if left mouse button is pressed
+            self.shoot()
+        if mouse[2]: # if right mouse button is pressed
             self.shoot()
     
     def move(self, dt):
