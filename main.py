@@ -62,6 +62,6 @@ def main():
             object.draw(screen) # draw the objects on the screen
         pygame.display.flip() #recycle the screen
 
-# Main function protection
+# Main function namespace protection
 if __name__ == "__main__":
     main()
