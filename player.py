@@ -30,8 +30,8 @@ class Player(CircleShape):
     def update(self, dt):
         self.timer -= dt
         keys = pygame.key.get_pressed() # listen for keys "getting pressed"
-        speed = BOOST_SPEED if keys[pygame.K_LSHIFT] else PLAYER_SPEED
         mouse = pygame.mouse.get_pressed() # listen for mouse buttons "getting pressed"
+        speed = BOOST_SPEED if keys[pygame.K_LSHIFT] else PLAYER_SPEED
         if keys[pygame.K_a]:
             self.rotate(-dt) # rotate left
         if keys[pygame.K_d]:
