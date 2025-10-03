@@ -12,7 +12,6 @@ from asteroidfield import AsteroidField
 from shot import Shot
 
 def main():
-
     # Print game start to console
     print("Starting Asteroids!")
     print("Screen width: 1280")
@@ -24,9 +23,7 @@ def main():
     # declare screen as instance of pygame.display with set_mode() method to define screen dimensions
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-    # declare clock as instance of pygame.time.Clock()
-    clock = pygame.time.Clock()
-
+    clock = pygame.time.Clock() # declare clock as instance of pygame.time.Clock()
     updatable = pygame.sprite.Group() # declare updatable objects group
     drawable = pygame.sprite.Group() # declare drawable objects group
     asteroids = pygame.sprite.Group() # declare asteroid objects group
@@ -50,26 +47,19 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT: #listen for quit in pygame window
                 return
-
         updatable.update(dt) # update the player rotation status
-
         for asteroid in asteroids:
             if asteroid.collides(player):
                 print("Game over!")
                 sys.exit()
-
             for shot in shots:
                 if asteroid.collides(shot):
                     asteroid.split()
                     shot.kill()
-
         dt = clock.tick(60) / 1000 #limit the FPS to 60
-        
         screen.fill("black") # fill the screen
-
         for object in drawable:
             object.draw(screen) # draw the objects on the screen
-
         pygame.display.flip() #recycle the screen
 
 # Main function protection
