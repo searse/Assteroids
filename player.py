@@ -30,29 +30,29 @@ class Player(CircleShape):
     def update(self, dt):
         self.timer -= dt
         keys = pygame.key.get_pressed() # listen for keys "getting pressed"
-        if keys[pygame.K_a]:
-                self.rotate(-dt)
-        if keys[pygame.K_d]:
-                self.rotate(dt)
-        if keys[pygame.K_w]:
-                self.move(dt)
-        if keys[pygame.K_s]:
-                self.move(-dt)
-        if keys[pygame.K_SPACE]:
-            self.shoot()
-
+        speed = BOOST_SPEED if keys[pygame.K_LSHIFT] else PLAYER_SPEED
         mouse = pygame.mouse.get_pressed() # listen for mouse buttons "getting pressed"
-        if mouse[0]: # if left mouse button is pressed
+        if keys[pygame.K_a]:
+                self.rotate(-dt) # rotate left
+        if keys[pygame.K_d]:
+                self.rotate(dt) # rotate right
+        if keys[pygame.K_w]:
+            self.move(dt, speed)
+        if keys[pygame.K_s]:
+            self.move(-dt, speed)
+        if keys[pygame.K_SPACE]: # shoot if space bar pressed
             self.shoot()
-        if mouse[2]: # if right mouse button is pressed
+        if mouse[0]: # shoot if left mouse button is pressed
+            self.shoot()
+        if mouse[2]: # shoot if right mouse button is pressed
             self.shoot()
     
-    def move(self, dt):
+    def move(self, dt, speed):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
-        self.position += forward * PLAYER_SPEED * dt
+        self.position += forward * speed * dt
 
     def shoot(self):
-        if self.timer > 0:
+        if self.timer > 0: # shoot rate limit
             return
         shot = Shot(self.position.x, self.position.y)
         shot.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED

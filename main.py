@@ -11,7 +11,6 @@ from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from shot import Shot
 
-
 def main():
 
     # Print game start to console
