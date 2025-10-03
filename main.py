@@ -57,7 +57,7 @@ def main():
                     asteroid.split()
                     shot.kill()
         dt = clock.tick(60) / 1000 #limit the FPS to 60
-        screen.fill("black") # fill the screen
+        screen.fill("orange") # fill the screen
         for object in drawable:
             object.draw(screen) # draw the objects on the screen
         pygame.display.flip() #recycle the screen
