@@ -16,3 +16,6 @@ uv.lock
 
 #vscode rules
 .vscode
+
+# Logging
+game_state.jsonl
